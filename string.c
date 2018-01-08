@@ -1,6 +1,7 @@
 #include "iString.h"
 
 #include <string.h>
+#include <stdlib.h>
 #include <stdbool.h>
 #include <ctype.h>
 
@@ -21,11 +22,9 @@
  * 
  * P.S.: For the first argument, the address has to be passed.
  */
-void allocateStringFromBuffer(char **string, char *buffer){
+void allocateStringFromBuffer(char **string, const char *buffer){
     size_t length = strlen(buffer) + INITIALIZATOR_SIZE;
-    *string = (char*)malloc((length * sizeof(char)));
-    
-    memset(*string, STRING_FILLER, length);
+    *string = (char*)calloc((length * sizeof(char)), sizeof(char));
     
     *string[FIRST_POSITION] = STRING_INITIALIZATOR;
     
@@ -41,9 +40,7 @@ void allocateStringFromBuffer(char **string, char *buffer){
  */
 void allocateStringFromLength(char **string, size_t length){
     length = length + INITIALIZATOR_SIZE;
-    *string = (char*)malloc(length * sizeof(char));
-    
-    memset(*string, STRING_FILLER, length);
+    *string = (char*)calloc(length * sizeof(char), sizeof(char));
     
     *string[FIRST_POSITION] = STRING_INITIALIZATOR;
 }
@@ -58,9 +55,9 @@ void clearString(char *string){
 
 
 /**
- * Check if a string constains a substring.
+ * Check if a string contains a substring.
  */
-bool stringContains(char *string, char *content){
+bool stringContains(const char *string, const char *content){
     bool contains = false;
     
     if(strstr(string, content) != NULL){
@@ -70,7 +67,7 @@ bool stringContains(char *string, char *content){
     return contains;
 }
 
-bool stringEquals(char *string, char *comparation){
+bool stringEquals(const char *string, const char *comparation){
     bool equals = false;
     
     if(string != NULL && comparation != NULL){
@@ -82,7 +79,7 @@ bool stringEquals(char *string, char *comparation){
     return equals;
 }
 
-bool stringIsEmpty(char *string){
+bool stringIsEmpty(const char *string){
     bool empty = false;
     
     if(string != NULL){
@@ -107,13 +104,13 @@ void removeFromString(char* source, const char *toRemove){
     
     while(source = strstr(source,toRemove)){
         sourcePosition = source + strlen(toRemove);
-        copyPosition =  1 + strlen(source + strlen(toRemove));
+        copyPosition = 1 + strlen(source + strlen(toRemove));
         
         memmove(source, sourcePosition, copyPosition);
     }
 }
 
-bool stringIsValidInteger(char *string){
+bool stringIsValidInteger(const char *string){
     bool integer = true;
     
     size_t length = strlen(string);
@@ -126,4 +123,7 @@ bool stringIsValidInteger(char *string){
             break;
         }
     }
+    
+    return integer;
 }
+
