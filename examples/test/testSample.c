@@ -1,10 +1,3 @@
-/*
- * File:   testSample.c
- * Author: victor
- *
- * Created on 2 de Novembro de 2018, 16:26
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 
