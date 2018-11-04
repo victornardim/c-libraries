@@ -8,15 +8,15 @@
 extern "C" {
 #endif
     
-    void allocateStringFromBuffer(char **string, char *buffer);
+    void allocateStringFromBuffer(char **string, const char *buffer);
     void allocateStringFromLength(char **string, size_t size);
     void clearString(char *string);
     
-    bool stringContains(char *source, char *content);
-    bool stringEquals(char *source, char *comparation);
-    bool stringIsEmpty(char *string);
+    bool stringContains(const char *source, const char *content);
+    bool stringEquals(const char *source, const char *comparation);
+    bool stringIsEmpty(const char *string);
     void removeFromString(char* source, const char *toRemove);
-    bool stringIsValidInteger(char *string);
+    bool stringIsValidInteger(const char *string);
     
 #ifdef __cplusplus
 }
