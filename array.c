@@ -43,10 +43,6 @@ void array_push(array* array, void* data) {
     }
 }
 
-void* array_get(array* array, int index) {
-    return array->data + (index * array->dataSize);
-}
-
 void* array_pop(array* array) {
     if(array->length == 0) return NULL;
     void* returnData = malloc(array->dataSize);
@@ -55,6 +51,24 @@ void* array_pop(array* array) {
     return returnData;
 }
 
+void* array_get(array* array, int index) {
+    return array->data + (index * array->dataSize);
+}
+
 size_t array_size(array* array) {
     return array->length;
+}
+
+int array_find(array* array, void* data, size_t dataSize) {
+    int dataPosition = -1;
+
+    int dataQuantity = array_size(array), i;
+    for(i = 0; i < dataQuantity; i++) {
+        if(memcmp(array_get(array, i), data, dataSize) == 0) {
+            dataPosition = i;
+            break;
+        }
+    }
+
+    return dataPosition;
 }
