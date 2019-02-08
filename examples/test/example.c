@@ -26,51 +26,10 @@ bool isEven(int number) {
 }
 
 char* getNumberName(int number) {
-    char* name;
-    switch(number){
-        case 0:
-            allocateStringFromBuffer(&name, "zero");
-            break;
-            
-        case 1:
-            allocateStringFromBuffer(&name, "one");
-            break;
-            
-        case 2:
-            allocateStringFromBuffer(&name, "two");
-            break;
-            
-        case 3:
-            allocateStringFromBuffer(&name, "three");
-            break;
-            
-        case 4:
-            allocateStringFromBuffer(&name, "four");
-            break;
-            
-        case 5:
-            allocateStringFromBuffer(&name, "five");
-            break;
-            
-        case 6:
-            allocateStringFromBuffer(&name, "six");
-            break;
-            
-        case 7:
-            allocateStringFromBuffer(&name, "seven");
-            break;
-            
-        case 8:
-            allocateStringFromBuffer(&name, "eight");
-            break;
-            
-        case 9:
-            allocateStringFromBuffer(&name, "nine");
-            break;
-            
-        default:
-            allocateStringFromBuffer(&name, "not supported");
-    }
-    
-    return name;
+    char* name[] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+
+    if(number < 0 || number > 9)
+        return "not supported";
+
+    return name[number];
 }
