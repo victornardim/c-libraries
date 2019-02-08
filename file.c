@@ -6,39 +6,39 @@
 #define READ_MODE "r"
 #define WRITE_MODE "w"
 
-long fileSize(FILE* file){
-    long fileSize;
-    
+long file_size(FILE* file){
+    long file_size;
+
     if(file != NULL){
         fseek(file , 0 , SEEK_END);
-        fileSize = ftell(file);
+        file_size = ftell(file);
         rewind(file);
     }
-    
-    return fileSize;
+
+    return file_size;
 }
 
-bool createFile(char* fileName){     
+bool file_create(char* fileName){
     FILE* file = fopen(fileName, WRITE_MODE);
     pclose(file);
-    
-    return fileExists(fileName);
+
+    return file_exists(fileName);
 }
 
-bool deleteFile(char* fileName){
+bool file_delete(char* fileName){
     remove(fileName);
-    
-    return !fileExists(fileName);
+
+    return !file_exists(fileName);
 }
 
-bool fileExists(char* fileLocation){
-    bool fileExists = false;
-    
+bool file_exists(char* fileLocation){
+    bool file_exists = false;
+
     FILE* file = fopen(fileLocation, READ_MODE);
     if(file != NULL){
-        fileExists = true;
+        file_exists = true;
         pclose(file);
     }
-    
-    return fileExists;
+
+    return file_exists;
 }

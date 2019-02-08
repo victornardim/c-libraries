@@ -6,17 +6,18 @@ extern "C" {
 #endif
 
 struct array {
-    void** data;
+    void* data;
     int dataSize;
-    int length;
+    size_t length;
     int maxLength;
 } typedef array;
-    
-array* createArray(int dataSize);
-void destroyArray(array* array);
-void arrayPush(array* array, void* data);
-void* arrayGet(array* array, int index);
-void* arrayPop(array* array);
+
+array* array_create(int dataSize);
+void array_destroy(array* array);
+void array_push(array* array, void* data);
+void* array_get(array* array, int index);
+size_t array_size(array* array);
+void* array_pop(array* array);
 
 #ifdef __cplusplus
 }

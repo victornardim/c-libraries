@@ -8,10 +8,10 @@ extern "C" {
 #include <stdbool.h>
 #include <stdio.h>
 
-long fileSize(FILE* file);
-bool createFile(char* fileName);
-bool deleteFile(char* fileName);
-bool fileExists(char* file);
+long file_size(FILE* file);
+bool file_create(char* fileName);
+bool file_delete(char* fileName);
+bool file_exists(char* file);
 
 #ifdef __cplusplus
 }

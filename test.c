@@ -11,22 +11,22 @@
 
 static int errors = 0;
 
-testSuite* createTestSuite(char* name) {
+testSuite* test_createSuite(char* name) {
     testSuite* newSuite = malloc(sizeof(testSuite));
-    allocateStringFromBuffer(&newSuite->name, name);
-    newSuite->tests = createArray(ADDRESS_SIZE);
-    
+    newSuite->name = string_allocateFromBuffer(name);
+    newSuite->tests = array_create(ADDRESS_SIZE);
+
     return newSuite;
 }
 
-void destroyTestSuite(testSuite* suite) {
+void test_destroySuite(testSuite* suite) {
     free(suite->name);
-    destroyArray(suite->tests);
+    array_destroy(suite->tests);
     free(suite);
 }
 
-void addTestToSuite(testSuite* suite, testFunction test) {
-    arrayPush(suite->tests, test);
+void test_addTestToSuite(testSuite* suite, testFunction test) {
+    array_push(suite->tests, &test);
 }
 
 static void logSuiteStart(char* suiteName) {
@@ -38,31 +38,27 @@ static void logSuiteEnd(char* suiteName, float duration, int passedTests, int te
     printf("\n%d/%d (%d%%) of the tests have passed.\n", passedTests, testQuantity, (passedTests * 100 / testQuantity));
 }
 
-void executeSuite(testSuite* suite) {
+void test_executeSuite(testSuite* suite) {
     time_t start, end;
     time(&start);
-    
+
     logSuiteStart(suite->name);
-    
-    int testQuantity = suite->tests->length;
-    while(suite->tests->length > 0) {
-        testFunction function = (testFunction)arrayPop(suite->tests);
+
+    int testQuantity = array_size(suite->tests);
+    while(array_size(suite->tests) > 0) {
+        testFunction function = *((testFunction*)array_pop(suite->tests));
         function();
     }
 
     int passedTests = (testQuantity - errors);
-    
+
     time(&end);
-    
+
     logSuiteEnd(suite->name, (float)(end - start), passedTests, testQuantity);
-    
-    clearTestErrors();
-}
 
-void reportTestError() {
-    errors++;
-}
-
-void clearTestErrors() {
     errors = 0;
+}
+
+void test_reportError() {
+    errors++;
 }

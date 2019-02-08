@@ -4,17 +4,17 @@
 
 #include "iArray.h"
 
-array* createArray(int dataSize) {
+array* array_create(int dataSize) {
     array *newArray = malloc(sizeof(array));
     newArray->data = malloc(10 * dataSize);
     newArray->dataSize = dataSize;
     newArray->length = 0;
     newArray->maxLength = 10;
-    
+
     return newArray;
 }
 
-void destroyArray(array* array) {
+void array_destroy(array* array) {
     free(array->data);
     free(array);
 }
@@ -24,29 +24,37 @@ static bool expandArray(array* array) {
     if(newDataArray != NULL) {
         array->maxLength += 10;
         array->data = newDataArray;
-        
+
         return true;
     }
-    
+
     return false;
 }
 
-void arrayPush(array* array, void* data) {
+void array_push(array* array, void* data) {
     bool pushData = true;
     if(array->length >= array->maxLength) {
         pushData = expandArray(array);
     }
-    
+
     if(pushData){
-        array->data[array->length++] = data;
+        memcpy(array->data + (array->length * array->dataSize), data, array->dataSize);
+        array->length++;
     }
 }
 
-void* arrayGet(array* array, int index) {
-    return array->data[index];
+void* array_get(array* array, int index) {
+    return array->data + (index * array->dataSize);
 }
 
-void* arrayPop(array* array) {
+void* array_pop(array* array) {
     if(array->length == 0) return NULL;
-    return array->data[--array->length];
+    void* returnData = malloc(array->dataSize);
+    memcpy(returnData, array->data + (--array->length * array->dataSize), array->dataSize);
+    memset(array->data + (array->length * array->dataSize), 0, array->dataSize);
+    return returnData;
+}
+
+size_t array_size(array* array) {
+    return array->length;
 }

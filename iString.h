@@ -7,17 +7,17 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-    
-    void allocateStringFromBuffer(char **string, const char *buffer);
-    void allocateStringFromLength(char **string, size_t size);
-    void clearString(char *string);
-    
-    bool stringContains(const char *source, const char *content);
-    bool stringEquals(const char *source, const char *comparation);
-    bool stringIsEmpty(const char *string);
-    void removeFromString(char* source, const char *toRemove);
-    bool stringIsValidInteger(const char *string);
-    
+
+    char* string_allocateFromBuffer(const char *buffer);
+    char* string_allocateFromLength(size_t size);
+    void string_clear(char *string);
+
+    bool string_contains(const char *source, const char *content);
+    bool string_equals(const char *source, const char *comparation);
+    bool string_isEmpty(const char *string);
+    void string_remove(char* source, const char *toRemove);
+    bool string_isValidInteger(const char *string);
+
 #ifdef __cplusplus
 }
 #endif

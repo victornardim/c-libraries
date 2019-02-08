@@ -9,18 +9,20 @@
 #include "iArray.h"
 #include "iLog.h"
 
+#define SECURE_TEST_ATTEMPT_NUMBER 100
+
 #ifdef __cplusplus
 extern "C" {
 #endif
-    
-#define logTest(status, testName, assertType) if(status){ success(getPatternedString("%s (%s)", 2, testName, assertType)) } else { error(getPatternedString("%s (%s)", 2, testName, assertType)); reportTestError();}
-#define assertTrue(assert) logTest((assert == true), __func__, "assertTrue");
-#define assertFalse(assert) logTest(assert == false, __func__, "assertFalse");
-#define assertEquals(firstData, secondData) logTest((firstData == secondData), __func__, "assertEquals");
-#define assertNotEquals(firstData, secondData) logTest((firstData != secondData), __func__, "assertNotEquals");
-#define assertStringEquals(firstString, secondString) logTest(stringEquals(firstString, secondString), __func__, "assertStringEquals");
-#define assertStringNotEquals(firstString, secondString) logTest(!stringEquals(firstString, secondString), __func__, "assertStringNotEquals");
-    
+
+#define test_log(status, testName, assertType) if(status){ log_success(log_getPatternedString("%s (%s)", 2, testName, assertType)) } else { log_error(log_getPatternedString("%s (%s)", 2, testName, assertType)); test_reportError();};
+#define test_assertTrue(assert) test_log((assert == true), __func__, "test_assertTrue");
+#define test_assertFalse(assert) test_log(assert == false, __func__, "test_assertFalse");
+#define test_assertEquals(firstData, secondData) test_log((firstData == secondData), __func__, "test_assertEquals");
+#define test_assertNotEquals(firstData, secondData) test_log((firstData != secondData), __func__, "test_assertNotEquals");
+#define test_assertStringEquals(firstString, secondString) test_log(string_equals(firstString, secondString), __func__, "test_assertStringEquals");
+#define test_assertStringNotEquals(firstString, secondString) test_log(!string_equals(firstString, secondString), __func__, "test_assertStringNotEquals");
+
 typedef void (*testFunction)();
 
 struct testSuite {
@@ -28,13 +30,11 @@ struct testSuite {
     array* tests;
 } typedef testSuite;
 
-testSuite* createTestSuite(char* name);
-void destroyTestSuite(testSuite* suite);
-void addTestToSuite(testSuite* suite, testFunction test);
-void executeSuite(testSuite* suite);
-void executeTest(testFunction function);
-void reportTestError();
-void clearTestErrors();
+testSuite* test_createSuite(char* name);
+void test_destroySuite(testSuite* suite);
+void test_addTestToSuite(testSuite* suite, testFunction test);
+void test_executeSuite(testSuite* suite);
+void test_reportError();
 
 #ifdef __cplusplus
 }

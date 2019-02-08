@@ -6,9 +6,10 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-    
-int getNumberLength(int number);
-int* decomposeNumber(int number);
+
+int integer_getNumberLength(int number);
+int* integer_decomposeNumber(int number);
+int integer_getRandom(int min, int max);
 
 #ifdef __cplusplus
 }
