@@ -7,9 +7,9 @@
 extern "C" {
 #endif
 
-#define log_success(message) printf("\n[%s] {SUCCESS}: %s", log_getTimestamp(), message);
-#define log_error(message) printf("\n[%s] {ERROR}: %s", log_getTimestamp(), message);
-#define log_message(message) printf("\n[%s]: %s", log_getTimestamp(), message);
+#define log_success(message) char* timestamp = log_getTimestamp(); printf("\n[%s] {SUCCESS}: %s", timestamp, message); free(timestamp);
+#define log_error(message) char* timestamp = log_getTimestamp(); printf("\n[%s] {ERROR}: %s", timestamp, message); free(timestamp);
+#define log_message(message) char* timestamp = log_getTimestamp(); printf("\n[%s]: %s", timestamp, message); free(timestamp);
 
 char* log_getTimestamp();
 char* log_getPatternedString(char* pattern, int argsCount, ...);
