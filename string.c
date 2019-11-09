@@ -47,6 +47,11 @@ char* string_allocateFromLength(size_t length){
     return string;
 }
 
+void string_destroy(char* string) {
+    if(string != NULL)
+        free(string);
+}
+
 /**
  * Clear a string filling it with zeros.
  */
@@ -54,7 +59,6 @@ void string_clear(char *string){
     size_t length = strlen(string);
     memset(string, STRING_FILLER, length);
 }
-
 
 /**
  * Check if a string contains a substring.
@@ -100,16 +104,44 @@ bool string_isEmpty(const char *string){
 /**
  * Remove a substring from the source as many times as it have been found.
  */
-void string_remove(char* source, const char *toRemove){
-    void *sourcePosition;
-    size_t copyPosition;
+char* string_remove(char* source, const char *toRemove){
+    return string_replace(source, toRemove, "");
+}
 
-    while((source = strstr(source,toRemove))){
-        sourcePosition = source + strlen(toRemove);
-        copyPosition = 1 + strlen(source + strlen(toRemove));
+/**
 
-        memmove(source, sourcePosition, copyPosition);
+ * Replace all occurrences of a substring inside the main string for another substring.
+ *
+ * Returns a pointer to the new string.
+
+ */
+char* string_replace(char* source, const char* toReplace, const char* replaceFor) {
+    char* sourceCopy = string_allocateFromBuffer(source);
+    char* replacedString = string_allocateFromLength(500);
+    char* occurrence = NULL;
+
+    void *destinationPosition;
+
+    size_t moveLength;
+
+    while((occurrence = strstr(sourceCopy, toReplace))) {
+        strncat(replacedString, sourceCopy, occurrence - sourceCopy);
+        strncat(replacedString, replaceFor, strlen(replaceFor));
+
+        destinationPosition = occurrence + strlen(toReplace);
+
+        moveLength = 1 + strlen(occurrence + strlen(toReplace));
+
+        memmove(sourceCopy, destinationPosition, moveLength);
     }
+
+    if(strlen(sourceCopy) > 0) {
+        strncat(replacedString, sourceCopy, occurrence - sourceCopy);
+    }
+
+    string_destroy(sourceCopy);
+
+    return replacedString;
 }
 
 bool string_isValidInteger(const char *string){
