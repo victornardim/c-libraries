@@ -21,6 +21,8 @@ extern "C" {
     char* string_remove(char* source, const char* toRemove);
     char* string_replace(char* string, const char* toReplace, const char* replaceFor);
     bool string_isValidInteger(const char *string);
+    char* string_toUppercase(const char* string);
+    char* string_toLowercase(const char* string);
 
 #ifdef __cplusplus
 }

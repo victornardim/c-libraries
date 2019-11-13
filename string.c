@@ -12,6 +12,12 @@
 
 #define STRING_FILLER 0
 
+#define FIRST_UPPERCASE_LETTER 65
+#define LAST_UPPERCASE_LETTER 90
+#define FIRST_LOWERCASE_LETTER 97
+#define LAST_LOWERCASE_LETTER 122
+#define LOWERCASE_TO_UPPERCASE_DIFFERENCE 32
+
 /**
  * Allocates a string from a pre-allocated buffer string
  * and copy the content of this buffer to it.
@@ -161,3 +167,40 @@ bool string_isValidInteger(const char *string){
     return integer;
 }
 
+char* string_toUppercase(const char* string) {
+    size_t length = strlen(string);
+
+    char* uppedString = string_allocateFromLength(length);
+
+    int i = 0;
+    for (i = 0; i < length; i++) {
+        if (string[i] >= FIRST_LOWERCASE_LETTER && string[i] <= LAST_LOWERCASE_LETTER) {
+            uppedString[i] = string[i] - LOWERCASE_TO_UPPERCASE_DIFFERENCE;
+        } else {
+            uppedString[i] = string[i];
+        }
+    }
+
+    uppedString[length] = '\0';
+
+    return uppedString;
+}
+
+char* string_toLowercase(const char* string) {
+    size_t length = strlen(string);
+
+    char* loweredString = string_allocateFromLength(length);
+
+    int i = 0;
+    for (i = 0; i < length; i++) {
+        if (string[i] >= FIRST_UPPERCASE_LETTER && string[i] <= LAST_UPPERCASE_LETTER) {
+            loweredString[i] = string[i] + LOWERCASE_TO_UPPERCASE_DIFFERENCE;
+        } else {
+            loweredString[i] = string[i];
+        }
+    }
+
+    loweredString[length] = '\0';
+
+    return loweredString;
+}

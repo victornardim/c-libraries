@@ -7,12 +7,16 @@
 extern "C" {
 #endif
 
-#define log_success(message) char* timestamp = log_getTimestamp(); printf("\n[%s] {SUCCESS}: %s", timestamp, message); free(timestamp);
-#define log_error(message) char* timestamp = log_getTimestamp(); printf("\n[%s] {ERROR}: %s", timestamp, message); free(timestamp);
-#define log_message(message) char* timestamp = log_getTimestamp(); printf("\n[%s]: %s", timestamp, message); free(timestamp);
+#define ANSI_COLOR_RED "\x1b[31m"
+#define ANSI_COLOR_GREEN "\x1b[32m"
+#define ANSI_COLOR_RESET "\x1b[0m"
 
 char* log_getTimestamp();
 char* log_getPatternedString(char* pattern, int argsCount, ...);
+
+void log_success(char* message);
+void log_error(char* message);
+void log_message(char* message);
 
 #ifdef __cplusplus
 }

@@ -29,3 +29,21 @@ char* log_getPatternedString(char* pattern, int argsCount, ...) {
 
     return message;
 }
+
+void log_success(char* message) {
+    char* timestamp = log_getTimestamp();
+    printf(ANSI_COLOR_GREEN "\n[%s] {SUCCESS}: %s" ANSI_COLOR_RESET, timestamp, message);
+    free(timestamp);
+}
+
+void log_error(char* message){
+    char* timestamp = log_getTimestamp();
+    printf(ANSI_COLOR_RED "\n[%s] {ERROR}: %s" ANSI_COLOR_RESET, timestamp, message);
+    free(timestamp);
+}
+
+void log_message(char* message) {
+    char* timestamp = log_getTimestamp();
+    printf("\n[%s]: %s", timestamp, message);
+    free(timestamp);
+}
