@@ -4,8 +4,7 @@ A simple C library with some high level functions to deal with files.
 
 ## Functions
 
-```
-<pre>
+<code>
 // Return the file length in characters.
 <b>long file_size(FILE* file)</b>
 
@@ -23,5 +22,4 @@ A simple C library with some high level functions to deal with files.
 
 // Get the current direcetory where the application is running.
 <b>char* file_getActiveDirectory()</b>
-</pre>
-```
+</code>

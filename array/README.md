@@ -26,7 +26,6 @@ That's the way it works, concatenating data after data, continuously.
 ## Functions
 
 <code>
-<pre>
 // Creates an array with 10 initial positions, with the specified data size per position.
 <b>array* array_create(int dataSize)</b>
 
@@ -48,12 +47,11 @@ That's the way it works, concatenating data after data, continuously.
 
 // Find the specified data in the array and return its index.
 <b>int array_find(array* array, void* data)</b>
-</pre>
 </code>
 
 ## Example
 
-```
+<code>
 int buffer;
 
 array* stack = array_create(sizeof(int));
@@ -75,4 +73,4 @@ buffer = 35;
 int foundIndex = array_find(stack, &buffer); // 1
 
 array_destroy(stack);
-```
+</code>

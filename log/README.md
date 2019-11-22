@@ -4,8 +4,7 @@ A simple C library to deal with message logging.
 
 ## Functions
 
-```
-<pre>
+<code>
 // Get the current date and time in the format dd/mm/yyyy hh:mm:ss
 <b>char* log_getTimestamp()</b>
 
@@ -20,5 +19,4 @@ A simple C library to deal with message logging.
 
 // Print a message, precedded by the current timestamp
 <b>void log_message(char* message)</b>
-</pre>
-```
+</code>
