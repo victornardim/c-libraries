@@ -1,26 +1,26 @@
 # array.h - C Array library
 
-A C library to easily deal with arrays like a stack (FILO).
-It works with a void pointer (void*), that represents an abstract data type in C.
+A C library to easily deal with arrays like a stack (FILO).  
+It works with a void pointer (void*), that represents an abstract data type in C.  
 You can set any data type of any size to it, but it had to be in a variable, because the lib copies the value from the address. To get the data back it is requires an explicit cast.
 
 ## How it works
 
-Some addresses are alloc'd for the array of void* with the size of 10 times the specified data size. If more addresses are required, it will be done when the 11th data is pushed.
-The data from a buffer is copied to this addresses, continuously, this way: array[arraySize * dataSize] = data.
-Let's supose that the array have 5 positions of char[10], that is, 50 addresses:
-
-(array) |--------------------------------------------------|
-
-If we push the string "something" to it:
-
-(array) |something\0----------------------------------------|
-
-And if we push another string "important" to it:
-
-(array) |something\0important\0------------------------------|
- 
-That's the way it works, concatenating data after data, continuously.
+Some addresses are alloc'd for the array of void* with the size of 10 times the specified data size. If more addresses are required, it will be done when the 11th data is pushed.  
+The data from a buffer is copied to this addresses, continuously, this way: array[arraySize * dataSize] = data.  
+Let's supose that the array have 5 positions of char[10], that is, 50 addresses:  
+  
+(array) |--------------------------------------------------|  
+  
+If we push the string "something" to it:  
+  
+(array) |something\0----------------------------------------|  
+  
+And if we push another string "important" to it:  
+  
+(array) |something\0important\0------------------------------|  
+   
+That's the way it works, concatenating data after data, continuously.  
 
 
 ## Functions

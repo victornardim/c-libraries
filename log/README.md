@@ -1,4 +1,4 @@
-## log.h - C Log library
+# log.h - C Log library
 
 A simple C library to deal with message logging.
 

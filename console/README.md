@@ -1,4 +1,4 @@
-## console.h - C Console utils library
+# console.h - C Console utils library
 
 A simple C library to work with terminals.
 

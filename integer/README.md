@@ -1,4 +1,4 @@
-## integer.h - C Integer util library
+# integer.h - C Integer util library
 
 A simple C library that provides some general functions linked to integers.
 

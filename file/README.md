@@ -1,4 +1,4 @@
-## file.h - C File util library
+# file.h - C File util library
 
 A simple C library with some high level functions to deal with files.
 

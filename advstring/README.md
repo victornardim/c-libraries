@@ -1,5 +1,5 @@
 # advstring.h - C Advanced string library
-A library based on the main c string lib.
+A library based on the main c string lib.  
 It has some high level functions to help you deal with strings.
 
 ## Functions
