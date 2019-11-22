@@ -5,6 +5,7 @@ It has some high level functions to help you deal with strings.
 ## Functions
 
 <code>
+<pre>
 // Allocate memmory for your string based on a buffer string.
 // Also, it will copy the content of the buffer string to your new string.
 <b>char* advstring_allocateFromBuffer(const char *buffer)</b>
@@ -41,4 +42,5 @@ It has some high level functions to help you deal with strings.
 
 // Turns all the upper alphabetical characters (A-Z) in your string to lowercase (a-z)
 <b>char* advstring_toLowercase(const char* string)</b>
+</pre>
 </code>

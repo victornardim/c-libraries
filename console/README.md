@@ -5,6 +5,7 @@ A simple C library to work with terminals.
 ## Functions
 
 <code>
+<pre>
 // Clear the console screen.
 <b>void console_clearScreen()</b>
 
@@ -16,4 +17,5 @@ A simple C library to work with terminals.
 
 // Wait for the user to press some key.
 <b>void console_stopExecution()</b>
+</pre>
 </code>

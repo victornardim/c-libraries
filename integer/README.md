@@ -5,6 +5,7 @@ A simple C library that provides some general functions linked to integers.
 ## Functions
 
 <code>
+<pre>
 // Return the number length, in digits.
 <b>int integer_getNumberLength(int number)</b>
 
@@ -16,4 +17,5 @@ A simple C library that provides some general functions linked to integers.
 
 // Convert the specified string into integer.
 <b>int integer_convertFromString(char* string)</b>
+</pre>
 </code>
