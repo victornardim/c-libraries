@@ -27,26 +27,26 @@ That's the way it works, concatenating data after data, continuously.
 
 ```c
 // Creates an array with 10 initial positions, with the specified data size per position.
-array* array_create(int dataSize)
+array* array_create(int dataSize);
 
 // Destroy the array, freeing all the possible pointers.
-void array_destroy(array* array)
+void array_destroy(array* array);
 
 // Push the data into the array.
 // If the initial max size (10 positions) was exceeded, 10 new positions are allocated.
-void array_push(array* array, void* data)
+void array_push(array* array, void* data);
 
 // Get the value from the last position of the array, removing it.
-void* array_pop(array* array)
+void* array_pop(array* array);
 
 // Get the value from the specified index.
-void* array_get(array* array, int index)
+void* array_get(array* array, int index);
 
 // Get the array length.
-size_t array_size(array* array)
+size_t array_size(array* array);
 
 // Find the specified data in the array and return its index.
-int array_find(array* array, void* data)
+int array_find(array* array, void* data);
 ```
 
 ## Example
