@@ -1,4 +1,4 @@
-## C general libraries
+# C general libraries
 
 Here it's a bundle with some general libraries to make code life easier in C.  
 Enjoy them! :)
