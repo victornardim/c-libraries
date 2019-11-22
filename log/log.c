@@ -2,13 +2,11 @@
 #include <time.h>
 #include <stdarg.h>
 
-#include "iLog.h"
-#include "iString.h"
-
-#define STRING_SIZE 150
+#include "log.h"
+#include "advstring.h"
 
 char* log_getTimestamp(){
-    char* timestamp = string_allocateFromLength(50);
+    char* timestamp = advstring_allocateFromLength(50);
 
     time_t now = time(NULL);
     struct tm* timeStruct = localtime(&now);
@@ -22,8 +20,8 @@ char* log_getPatternedString(char* pattern, int argsCount, ...) {
     va_list args;
     va_start(args, argsCount);
 
-    char* message = string_allocateFromLength(STRING_SIZE);
-    vsnprintf(message, STRING_SIZE, pattern, args);
+    char* message = advstring_allocateFromLength(BUFFER_DEFAULT_SIZE);
+    vsnprintf(message, BUFFER_DEFAULT_SIZE, pattern, args);
 
     va_end(args);
 

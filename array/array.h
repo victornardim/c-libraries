@@ -1,5 +1,5 @@
-#ifndef IARRAY_H
-#define IARRAY_H
+#ifndef ARRAY_H
+#define ARRAY_H
 
 #include <stdlib.h>
 
@@ -20,11 +20,11 @@ void array_push(array* array, void* data);
 void* array_pop(array* array);
 void* array_get(array* array, int index);
 size_t array_size(array* array);
-int array_find(array* array, void* data, size_t dataSize);
+int array_find(array* array, void* data);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* IARRAY_H */
+#endif /* ARRAY_H */
 

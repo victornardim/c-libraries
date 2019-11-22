@@ -1,8 +1,6 @@
 #ifndef CONSOLE_H
 #define CONSOLE_H
 
-#include "iString.h"
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -17,4 +15,4 @@ void console_stopExecution();
 }
 #endif
 
-#endif /* ILOG_H */
+#endif /* CONSOLE_H */

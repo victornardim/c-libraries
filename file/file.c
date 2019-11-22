@@ -1,7 +1,16 @@
-#include "iFile.h"
+#include "file.h"
 
 #include <stdbool.h>
 #include <stdio.h>
+
+#if defined(_WIN32)
+	#include <direct.h>
+#elif defined(__unix__)
+	#include <sys/stat.h>
+	#include <unistd.h>
+#endif
+
+#include "advstring.h"
 
 #define READ_MODE "r"
 #define WRITE_MODE "w"
@@ -41,4 +50,24 @@ bool file_exists(char* fileLocation){
     }
 
     return file_exists;
+}
+
+void file_createDirectory(char* directory) {
+#if defined(_WIN32)
+	mkdir(directory);
+#elif defined(__unix__)
+	mkdir(directory, 0700);
+#endif
+}
+
+char* file_getActiveDirectory() {
+	char* activeDirectory = advstring_allocateFromLength(BUFFER_DEFAULT_SIZE);
+	
+#if defined(_WIN32)
+	_getcwd(activeDirectory, BUFFER_DEFAULT_SIZE);
+#elif defined(__unix__)
+	getcwd(activeDirectory, BUFFER_DEFAULT_SIZE);
+#endif
+
+	return activeDirectory;
 }

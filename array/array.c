@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdbool.h>
 
-#include "iArray.h"
+#include "array.h"
 
 array* array_create(int dataSize) {
     array *newArray = malloc(sizeof(array));
@@ -59,12 +59,12 @@ size_t array_size(array* array) {
     return array->length;
 }
 
-int array_find(array* array, void* data, size_t dataSize) {
+int array_find(array* array, void* data) {
     int dataPosition = -1;
 
     int dataQuantity = array_size(array), i;
     for(i = 0; i < dataQuantity; i++) {
-        if(memcmp(array_get(array, i), data, dataSize) == 0) {
+        if(memcmp(array_get(array, i), data, array->dataSize) == 0) {
             dataPosition = i;
             break;
         }

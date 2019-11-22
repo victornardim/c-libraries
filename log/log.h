@@ -1,7 +1,7 @@
 #include <stdarg.h>
 
-#ifndef ILOG_H
-#define ILOG_H
+#ifndef LOG_H
+#define LOG_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -13,7 +13,6 @@ extern "C" {
 
 char* log_getTimestamp();
 char* log_getPatternedString(char* pattern, int argsCount, ...);
-
 void log_success(char* message);
 void log_error(char* message);
 void log_message(char* message);
@@ -22,5 +21,5 @@ void log_message(char* message);
 }
 #endif
 
-#endif /* ILOG_H */
+#endif /* LOG_H */
 

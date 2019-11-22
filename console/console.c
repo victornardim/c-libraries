@@ -3,22 +3,22 @@
 #include <string.h>
 
 #include "console.h"
-#include "iString.h"
+#include "advstring.h"
 
 char console_readChar() {
-    char* buffer = string_allocateFromLength(BUFFER_DEFAULT_SIZE);
+    char* buffer = advstring_allocateFromLength(BUFFER_DEFAULT_SIZE);
     char readedChar;
 
     fgets(buffer, BUFFER_DEFAULT_SIZE, stdin);
     sscanf(buffer, "%c", &readedChar);
 
-    string_destroy(buffer);
+    advstring_destroy(buffer);
 
     return readedChar;
 }
 
 char* console_readString() {
-    char* readedString = string_allocateFromLength(BUFFER_DEFAULT_SIZE);
+    char* readedString = advstring_allocateFromLength(BUFFER_DEFAULT_SIZE);
 
     fgets(readedString, BUFFER_DEFAULT_SIZE, stdin);
     readedString[strcspn(readedString, "\n")] = 0;

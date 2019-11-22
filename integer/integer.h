@@ -1,5 +1,5 @@
-#ifndef IINTEGER_H
-#define IINTEGER_H
+#ifndef INTEGER_H
+#define INTEGER_H
 
 // !! Need to use the -lm prefix to compile. !!
 
@@ -10,10 +10,11 @@ extern "C" {
 int integer_getNumberLength(int number);
 int* integer_decomposeNumber(int number);
 int integer_getRandom(int min, int max);
+int integer_convertFromString(char* string);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* IINTEGER_H */
+#endif /* INTEGER_H */
 

@@ -2,7 +2,7 @@
 #include <time.h>
 #include <math.h>
 
-#include "iInteger.h"
+#include "integer.h"
 
 int integer_getNumberLength(int number) {
     return floor(log10(number)) + 1;
@@ -22,4 +22,8 @@ int* integer_decomposeNumber(int number) {
 int integer_getRandom(int min, int max) {
     srand(clock());
     return (min + rand() / (RAND_MAX / (max - min + 1) + 1));
+}
+
+int integer_convertFromString(char* string) {
+	return atoi(string);
 }

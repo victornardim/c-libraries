@@ -1,5 +1,5 @@
-#ifndef IFILE_H
-#define IFILE_H
+#ifndef FILE_H
+#define FILE_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -12,11 +12,13 @@ long file_size(FILE* file);
 bool file_create(char* fileName);
 bool file_delete(char* fileName);
 bool file_exists(char* file);
+void file_createDirectory(char* directory);
+char* file_getActiveDirectory();
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* IFILE_H */
+#endif /* FILE_H */
 
 
