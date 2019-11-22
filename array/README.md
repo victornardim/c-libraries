@@ -25,36 +25,33 @@ That's the way it works, concatenating data after data, continuously.
 
 ## Functions
 
-<code>
-<pre>
+```c
 // Creates an array with 10 initial positions, with the specified data size per position.
-<b>array* array_create(int dataSize)</b>
+array* array_create(int dataSize)
 
 // Destroy the array, freeing all the possible pointers.
-<b>void array_destroy(array* array)</b>
+void array_destroy(array* array)
 
 // Push the data into the array.
 // If the initial max size (10 positions) was exceeded, 10 new positions are allocated.
-<b>void array_push(array* array, void* data)</b>
+void array_push(array* array, void* data)
 
 // Get the value from the last position of the array, removing it.
-<b>void* array_pop(array* array)</b>
+void* array_pop(array* array)
 
 // Get the value from the specified index.
-<b>void* array_get(array* array, int index)</b>
+void* array_get(array* array, int index)
 
 // Get the array length.
-<b>size_t array_size(array* array)</b>
+size_t array_size(array* array)
 
 // Find the specified data in the array and return its index.
-<b>int array_find(array* array, void* data)</b>
-</pre>
-</code>
+int array_find(array* array, void* data)
+```
 
 ## Example
 
-<code>
-<pre>
+```c
 int buffer;
 
 array* stack = array_create(sizeof(int));
@@ -76,5 +73,4 @@ buffer = 35;
 int foundIndex = array_find(stack, &buffer); // 1
 
 array_destroy(stack);
-</pre>
-</code>
+```
