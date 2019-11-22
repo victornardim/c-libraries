@@ -5,15 +5,17 @@ A simple C library that provides some general functions linked to integers.
 ## Functions
 
 ```
+<pre>
 // Return the number length, in digits.
-int integer_getNumberLength(int number)
+<b>int integer_getNumberLength(int number)</b>
 
 // Return an array of int, which each position is a digit from the number.
-int* integer_decomposeNumber(int number)
+<b>int* integer_decomposeNumber(int number)</b>
 
 // Return a random integer between the range of min and max.
-int integer_getRandom(int min, int max)
+<b>int integer_getRandom(int min, int max)</b>
 
 // Convert the specified string into integer.
-int integer_convertFromString(char* string)
+<b>int integer_convertFromString(char* string)</b>
+</pre>
 ```

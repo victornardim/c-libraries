@@ -5,15 +5,17 @@ A simple C library to work with terminals.
 ## Functions
 
 ```
+<pre>
 // Clear the console screen.
-void console_clearScreen()
+<b>void console_clearScreen()</b>
 
 // Wait for the user to enter a char in the terminal and returns it.
-char console_readChar()
+<b>char console_readChar()</b>
 
 // Wait for the user to enter a string in the terminal and returns it.
-char* console_readString()
+<b>char* console_readString()</b>
 
 // Wait for the user to press some key.
-void console_stopExecution()
+<b>void console_stopExecution()</b>
+</pre>
 ```

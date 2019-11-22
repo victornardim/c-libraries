@@ -5,21 +5,23 @@ A simple C library with some high level functions to deal with files.
 ## Functions
 
 ```
+<pre>
 // Return the file length in characters.
-long file_size(FILE* file)
+<b>long file_size(FILE* file)</b>
 
 // Create a new file with the specified name and returns if it was created with success.
-bool file_create(char* fileName)
+<b>bool file_create(char* fileName)</b>
 
 // Delete a file with the specified name and returns if it was deleted with success.
-bool file_delete(char* fileName)
+<b>bool file_delete(char* fileName)</b>
 
 // Return if the specified file exists.
-bool file_exists(char* file)
+<b>bool file_exists(char* file)</b>
 
 // Create a new directory with the specified name.
-void file_createDirectory(char* directory)
+<b>void file_createDirectory(char* directory)</b>
 
 // Get the current direcetory where the application is running.
-char* file_getActiveDirectory()
+<b>char* file_getActiveDirectory()</b>
+</pre>
 ```
