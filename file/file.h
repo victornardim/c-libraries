@@ -10,6 +10,7 @@ extern "C" {
 
 long file_size(FILE* file);
 bool file_create(char* fileName);
+void file_write(char* fileName, char* content);
 bool file_delete(char* fileName);
 bool file_exists(char* file);
 void file_createDirectory(char* directory);
@@ -20,5 +21,3 @@ char* file_getActiveDirectory();
 #endif
 
 #endif /* FILE_H */
-
-

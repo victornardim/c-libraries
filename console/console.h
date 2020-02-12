@@ -10,6 +10,9 @@ extern "C" {
 char console_readChar();
 char* console_readString();
 void console_stopExecution();
+#if defined(_WIN32)
+    void console_hide();
+#endif
 
 #ifdef __cplusplus
 }

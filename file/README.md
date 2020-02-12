@@ -11,6 +11,9 @@ long file_size(FILE* file);
 // Create a new file with the specified name and returns if it was created with success.
 bool file_create(char* fileName);
 
+// Write a string content to a file.
+void file_write(char* fileName, char* content);
+
 // Delete a file with the specified name and returns if it was deleted with success.
 bool file_delete(char* fileName);
 

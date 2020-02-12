@@ -16,4 +16,7 @@ char* console_readString();
 
 // Wait for the user to press some key.
 void console_stopExecution();
+
+// If the operational system is windows, hide the console, turning it into a background proccess
+void console_hide();
 ```
