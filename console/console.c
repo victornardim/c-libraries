@@ -3,7 +3,7 @@
 #include <string.h>
 
 #if defined(_WIN32)
-	#include <windows.h>
+    #include <windows.h>
 #endif
 
 #include "console.h"
@@ -36,13 +36,13 @@ void console_stopExecution() {
 }
 
 #if defined(_WIN32)
-	void console_hide() {
-		HWND consoleWindow;
-		char screenTitle[100];
+    void console_hide() {
+        HWND consoleWindow;
+        char screenTitle[100];
 
-		GetConsoleTitleA(screenTitle, sizeof(screenTitle));
-		consoleWindow = FindWindowA(NULL, screenTitle);
+        GetConsoleTitleA(screenTitle, sizeof(screenTitle));
+        consoleWindow = FindWindowA(NULL, screenTitle);
 
-		ShowWindow(consoleWindow, SW_HIDE);
-	}
+        ShowWindow(consoleWindow, SW_HIDE);
+    }
 #endif
