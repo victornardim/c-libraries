@@ -1,4 +1,5 @@
 # C general libraries
+[![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)]()
 
 Here it's a bundle with some general libraries to make code life easier in C.  
 Enjoy them! :)
